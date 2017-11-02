@@ -69,6 +69,10 @@
                         if ( ! isset( $ReduxFramework->extensions[ $name ] ) ) {
                             if ( class_exists( $extension['class'] ) ) {
                                 $ReduxFramework->extensions[ $name ] = new $extension['class']( $ReduxFramework );
+                            //if (isset($ReduxFramework->extensions[ $name ]->min_redux_version)) {
+                                //var_dump($ReduxFramework->extensions[ $name ]->min_redux_version);
+                            //}
+                                
                             } else {
                                 echo '<div id="message" class="error"><p>No class named <strong>' . $extension['class'] . '</strong> exists. Please verify your extension path.</p></div>';
                             }
@@ -545,7 +549,7 @@
                     } else {
                         $folders = scandir( $path, 1 );
                         foreach ( $folders as $folder ) {
-                            if ( $folder === '.' or $folder === '..' ) {
+                            if ( $folder === '.' or $folder === '..' or $folder[0] == "." ) {
                                 continue;
                             }
                             if ( file_exists( $path . $folder . '/extension_' . $folder . '.php' ) ) {
