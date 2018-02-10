@@ -1,5 +1,8 @@
 # Redux Framework Changelog
 
+## 3.6.8
+* New:      Added values to media field return array: (title, caption, alt, description).
+
 ## 3.6.7.14
 * Fixed:    Error in AJAX save due to incorrect object reference in redux.js.
 
